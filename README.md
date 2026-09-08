@@ -39,15 +39,31 @@ zdroj, průběžně ukládaný postup.
 
 ### Desktop (localhost)
 
-| Hlavní menu | Otázka | Bloky (Po 50) | Detail bloku |
-|---|---|---|---|
-| ![desktop menu](docs/screenshots/desktop-menu.png) | ![desktop otázka](docs/screenshots/desktop-question.png) | ![desktop bloky](docs/screenshots/desktop-chunks.png) | ![detail bloku](docs/screenshots/desktop-chunk-detail.png) |
+**Hlavní menu**
+
+![desktop menu](docs/screenshots/desktop-menu.png)
+
+**Otázka**
+
+![desktop otázka](docs/screenshots/desktop-question.png)
+
+**Bloky (Po 50)**
+
+![desktop bloky](docs/screenshots/desktop-chunks.png)
+
+**Detail bloku**
+
+![detail bloku](docs/screenshots/desktop-chunk-detail.png)
 
 ### Síť / mobil (LAN)
 
-| Otázka | Hlavní menu |
-|---|---|
-| ![mobil otázka](docs/screenshots/mobile-question.png) | ![mobil menu](docs/screenshots/mobile-menu.png) |
+**Otázka**
+
+![mobil otázka](docs/screenshots/mobile-question.png)
+
+**Hlavní menu**
+
+![mobil menu](docs/screenshots/mobile-menu.png)
 
 ## Soubory
 
