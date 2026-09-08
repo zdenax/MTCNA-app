@@ -6,3 +6,4 @@ progress.json
 complete_all.json
 mtcna_questions.json
 mtcna_scraper.py
+mtcna_quiz_standalone.html
