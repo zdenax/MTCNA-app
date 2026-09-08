@@ -7,6 +7,12 @@
 
 MikroTik MTCNA cert kvíz appka. Dva běhy, jeden HTML zdroj.
 
+## Screenshoty
+
+| Desktop | Mobil — otázka | Mobil — menu |
+|---|---|---|
+| ![desktop](docs/screenshots/desktop-question.png) | ![mobil otázka](docs/screenshots/mobile-question.png) | ![mobil menu](docs/screenshots/mobile-menu.png) |
+
 ## Soubory
 
 - `mtcna_web.py` — Flask app, port 5050, jen localhost.
