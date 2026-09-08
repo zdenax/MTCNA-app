@@ -1,9 +1,8 @@
 # MTCNA-app
 
 > **Poznámka:** repo obsahuje jen samotnou kvízovou aplikaci (Flask
-> server + UI). Banky otázek (`complete_all.json`, `mtcna_questions.json`)
-> zde nejsou a nejsou nikde v historii commitů — nejsou předmětem
-> tohoto repozitáře.
+> server + UI). Žádné banky otázek zde nejsou a nejsou ani nikde
+> v historii commitů — nejsou předmětem tohoto repozitáře.
 
 MikroTik MTCNA cert kvíz appka. Dva běhy, jeden HTML zdroj.
 
@@ -27,4 +26,19 @@ python3 mtcna_web.py            # localhost:5050
 python3 mtcna_web_network.py    # LAN, pro test na telefonu
 ```
 
-Banku otázek (JSON) je potřeba doplnit vlastní.
+Banku otázek (JSON) je potřeba doplnit vlastní — stačí libovolný `*.json`
+soubor vedle `mtcna_web.py` (kromě `progress.json`) v tomto formátu:
+
+```json
+[
+  {
+    "number": 1,
+    "text": "Znění otázky",
+    "options": ["Odpověď A", "Odpověď B", "Odpověď C"],
+    "correct": 0
+  }
+]
+```
+
+Appka automaticky najde všechny takové soubory a nabídne je v
+rozbalovacím seznamu "Zdroj" — žádná další registrace není potřeba.
