@@ -37,33 +37,32 @@ zdroj, průběžně ukládaný postup.
 
 ## Screenshoty
 
+Seřazeno tak, jak appkou skutečně procházíš: menu → výběr bloku otázek
+→ detail bloku (co už umíš / co ne) → samotná otázka.
+
 ### Desktop (localhost)
 
-**Hlavní menu**
-
-![desktop menu](docs/screenshots/desktop-menu.png)
-
-**Otázka**
-
-![desktop otázka](docs/screenshots/desktop-question.png)
-
-**Bloky (Po 50)**
-
-![desktop bloky](docs/screenshots/desktop-chunks.png)
-
-**Detail bloku**
-
-![detail bloku](docs/screenshots/desktop-chunk-detail.png)
+<table>
+<tr>
+<td align="center"><b>1. Hlavní menu</b><br><img src="docs/screenshots/desktop-menu.png" width="420"></td>
+<td align="center"><b>2. Bloky (Po 50)</b><br><img src="docs/screenshots/desktop-chunks.png" width="420"></td>
+</tr>
+<tr>
+<td align="center"><b>3. Detail bloku</b><br><img src="docs/screenshots/desktop-chunk-detail.png" width="420"></td>
+<td align="center"><b>4. Otázka</b><br><img src="docs/screenshots/desktop-question.png" width="420"></td>
+</tr>
+</table>
 
 ### Síť / mobil (LAN)
 
-**Otázka**
+Stejná appka, jen v telefonu přes LAN (`mtcna_web_network.py`).
 
-![mobil otázka](docs/screenshots/mobile-question.png)
-
-**Hlavní menu**
-
-![mobil menu](docs/screenshots/mobile-menu.png)
+<table>
+<tr>
+<td align="center"><b>Hlavní menu</b><br><img src="docs/screenshots/mobile-menu.png" width="260"></td>
+<td align="center"><b>Otázka</b><br><img src="docs/screenshots/mobile-question.png" width="260"></td>
+</tr>
+</table>
 
 ## Soubory
 
