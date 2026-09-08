@@ -4,19 +4,47 @@
 > server + UI). Žádné banky otázek zde nejsou a nejsou ani nikde
 > v historii commitů — nejsou předmětem tohoto repozitáře.
 
-MikroTik MTCNA cert kvíz appka. Dva běhy, jeden HTML zdroj.
+MikroTik MTCNA cert kvíz appka. Dva běhy (localhost / LAN), jeden HTML
+zdroj, průběžně ukládaný postup.
+
+## Funkce
+
+- **Více zdrojů otázek** — appka najde všechny `*.json` s bankou otázek
+  vedle sebe a nabídne je v rozbalovacím seznamu "Zdroj".
+- **Průběžný postup** — u každé otázky se pamatuje, jestli byla
+  zodpovězena správně/chybně/vůbec, počítá se procentuální úspěšnost.
+- **Pokračovat od poslední otázky** — appka nabídne návrat přesně tam,
+  kde se skončilo minule.
+
+### Režimy zkoušení
+
+| Režim | Co dělá |
+|---|---|
+| 📦 Po X (postupně) | Rozdělí celou banku na bloky po X otázkách (velikost si nastavíš). Ke každému bloku vidíš rozpad na správné/chybné/nezodpovězené a v bloku pak můžeš zkoušet jen jeho podmnožinu (vše / jen nové / jen chybné / jen správné), nebo blok nejdřív "Studuj pak testuj". |
+| 🚀 Vše popořadě | Celá banka otázek od začátku do konce. |
+| 🆕 Jen neprozkoumané | Jen otázky, na které jsi ještě nikdy neodpovídal. |
+| ⚠️ Jen chybné | Jen otázky, které jsi už někdy zodpověděl špatně. |
+| ✅ Zopakovat správné | Zopakuje otázky, které máš zatím správně. |
+| 🎲 Náhodný výběr | Zadáš počet a appka vybere náhodnou podmnožinu z celé banky. |
+| 📖 Studuj pak testuj | Vezme neprozkoumané/chybné otázky, nejdřív je ukáže i s odpovědí ke studiu, pak z nich udělá test. |
 
 ## Screenshoty
 
-| Desktop | Mobil — otázka | Mobil — menu |
-|---|---|---|
-| ![desktop](docs/screenshots/desktop-question.png) | ![mobil otázka](docs/screenshots/mobile-question.png) | ![mobil menu](docs/screenshots/mobile-menu.png) |
+### Desktop (localhost)
+
+![desktop](docs/screenshots/desktop-question.png)
+
+### Síť / mobil (LAN)
+
+| Otázka | Hlavní menu |
+|---|---|
+| ![mobil otázka](docs/screenshots/mobile-question.png) | ![mobil menu](docs/screenshots/mobile-menu.png) |
 
 ## Soubory
 
-- `mtcna_web.py` — Flask app, port 5050, jen localhost.
-- `mtcna_web_network.py` — Flask app pro LAN/testování na mobilu (import HTML z `mtcna_web.py`).
-- `mtcna_quiz_standalone.html` — starší statická verze bez serveru.
+- `mtcna_web.py` — Flask app, port 5050, jen localhost. Obsahuje celé UI (`HTML` string) a `/api/*` routy.
+- `mtcna_web_network.py` — Flask app pro LAN/testování na mobilu (importuje `HTML` přímo z `mtcna_web.py`, žádná duplikace).
+- `mtcna_quiz_standalone.html` — starší statická verze bez serveru, vygenerovaná `build_pwa.py`. Bez chunk režimů, jednodušší.
 - `build_pwa.py` — sestavení standalone verze z bank otázek.
 
 ## Spuštění
