@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+progress.json
+.vscode/
+complete_all.json
+mtcna_questions.json
