@@ -68,8 +68,7 @@ Stejná appka, jen v telefonu přes LAN (`mtcna_web_network.py`).
 
 - `mtcna_web.py` — Flask app, port 5050, jen localhost. Obsahuje celé UI (`HTML` string) a `/api/*` routy.
 - `mtcna_web_network.py` — Flask app pro LAN/testování na mobilu (importuje `HTML` přímo z `mtcna_web.py`, žádná duplikace).
-- `mtcna_quiz_standalone.html` — starší statická verze bez serveru, vygenerovaná `build_pwa.py`. Bez chunk režimů, jednodušší.
-- `build_pwa.py` — sestavení standalone verze z bank otázek.
+- `build_pwa.py` — skript na sestavení statické standalone verze z vlastní banky otázek (výstupní `.html` má banku zabudovanou uvnitř, proto se negeneruje ani nekomituje do tohoto repa).
 
 ## Spuštění
 
