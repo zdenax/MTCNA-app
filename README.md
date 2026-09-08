@@ -27,12 +27,21 @@ zdroj, průběžně ukládaný postup.
 | ✅ Zopakovat správné | Zopakuje otázky, které máš zatím správně. |
 | 🎲 Náhodný výběr | Zadáš počet a appka vybere náhodnou podmnožinu z celé banky. |
 | 📖 Studuj pak testuj | Vezme neprozkoumané/chybné otázky, nejdřív je ukáže i s odpovědí ke studiu, pak z nich udělá test. |
+| 🎯 Ostrý test | Simulace reálné MTCNA zkoušky — 25 otázek, 60 minut, 60 % na úspěch. |
+| 💀 Sudden Death | Náhodné otázky, první špatná odpověď = konec ("GAME OVER"). |
+
+### Ostatní
+
+- 🗑 **Smazat progress tohoto zdroje** — vynuluje uložený postup pro aktuálně vybranou banku otázek.
+- ❌ **Ukončit server** — vypne běžící Flask instanci přímo z UI.
 
 ## Screenshoty
 
 ### Desktop (localhost)
 
-![desktop](docs/screenshots/desktop-question.png)
+| Hlavní menu | Otázka | Bloky (Po 50) | Detail bloku |
+|---|---|---|---|
+| ![desktop menu](docs/screenshots/desktop-menu.png) | ![desktop otázka](docs/screenshots/desktop-question.png) | ![desktop bloky](docs/screenshots/desktop-chunks.png) | ![detail bloku](docs/screenshots/desktop-chunk-detail.png) |
 
 ### Síť / mobil (LAN)
 
