@@ -667,13 +667,18 @@ function updateExamTimer() {
   }
 }
 
-function examNext() {
+function examRecordCurrent() {
   const q = queue[idx];
   const correctSet = new Set(q.correct);
   const isCorrect = selected.size === correctSet.size && [...selected].every(k => correctSet.has(k));
   const rec = { id: q.id, userKeys: [...selected], correctKeys: [...correctSet], isCorrect };
   const existing = history.findIndex(h => h.id === q.id);
   if (existing >= 0) history[existing] = rec; else history.push(rec);
+}
+
+function examNext() {
+  if (selected.size === 0) return;
+  examRecordCurrent();
 
   idx++;
   if (idx < queue.length) {
@@ -730,13 +735,21 @@ function renderQ() {
     optsEl.appendChild(div);
   }
 
-  document.getElementById('btn-prev').disabled = (idx === 0) || suddenDeath || studyMode || examMode;
+  document.getElementById('btn-prev').disabled = (idx === 0) || suddenDeath || studyMode;
   document.getElementById('btn-action').textContent = '✔ Potvrdit (Enter)';
   document.getElementById('btn-action').disabled = true;
 
   if (examMode) {
+    const rec = history.find(h => h.id === q.id);
+    if (rec) {
+      selected = new Set(rec.userKeys);
+      for (const letter of rec.userKeys) {
+        const el = document.getElementById('opt-' + letter);
+        if (el) el.classList.add('selected');
+      }
+    }
     document.getElementById('btn-action').textContent = idx < total - 1 ? 'Další →  (Enter)' : '📊 Odeslat test (Enter)';
-    document.getElementById('btn-action').disabled = false;
+    document.getElementById('btn-action').disabled = selected.size === 0;
     return;
   }
 
@@ -843,7 +856,14 @@ function restoreState(rec) {
   btn.disabled = false;
 }
 
-function prevQ() { if (studyMode || examMode) return; if (idx > 0) { idx--; renderQ(); } }
+function prevQ() {
+  if (studyMode) return;
+  if (idx > 0) {
+    if (examMode) examRecordCurrent();
+    idx--;
+    renderQ();
+  }
+}
 
 function nextQ() {
   idx++;
