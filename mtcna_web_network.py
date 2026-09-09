@@ -36,13 +36,20 @@ def load_questions(source):
     return [{"id": q["number"], "question": q["text"],
              "options": q["options"], "correct": q["correct"]} for q in data]
 
+PROGRESS_LOCK = threading.Lock()
+
 def load_progress():
     if PROGRESS_FILE.exists():
-        return json.loads(PROGRESS_FILE.read_text(encoding="utf-8"))
+        try:
+            return json.loads(PROGRESS_FILE.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            return {}
     return {}
 
 def save_progress(data):
-    PROGRESS_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp = PROGRESS_FILE.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    os.replace(tmp, PROGRESS_FILE)
 
 # reuse same HTML as mtcna_web.py — import it
 try:
@@ -82,9 +89,10 @@ def api_progress_get():
 def api_progress_post():
     source = request.args.get("source", "mtcna_questions")
     payload = request.get_json()
-    data = load_progress()
-    data[source] = payload
-    save_progress(data)
+    with PROGRESS_LOCK:
+        data = load_progress()
+        data[source] = payload
+        save_progress(data)
     return jsonify({"ok": True})
 
 @app.route("/shutdown", methods=["POST"])
