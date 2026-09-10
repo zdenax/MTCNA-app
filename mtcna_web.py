@@ -776,10 +776,12 @@ function renderQ() {
 
 function toggleOpt(letter) {
   if (checked || studyMode) return;
+  const q = queue[idx];
   if (selected.has(letter)) {
     selected.delete(letter);
     document.getElementById('opt-' + letter).classList.remove('selected');
   } else {
+    if (selected.size >= q.correct.length) return;
     selected.add(letter);
     document.getElementById('opt-' + letter).classList.add('selected');
   }
